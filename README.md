@@ -67,7 +67,7 @@ DATABASE_URL=postgres://postgres:password@localhost:5432/todo?sslmode=disable
 ### 4️⃣ Install Dependencies
 
 ```sh
-go mod tidy
+go get -u github.com/gin-gonic/gin gorm.io/gorm gorm.io/driver/postgres github.com/joho/godotenv
 ```
 
 ### 5️⃣ Run Migrations
