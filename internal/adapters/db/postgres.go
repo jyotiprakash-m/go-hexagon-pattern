@@ -1,10 +1,9 @@
 package db
 
 import (
+	"gin-hex/internal/migrations"
 	"log"
 	"os"
-
-	"gin-hex/internal/core/models"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -23,7 +22,7 @@ func ConnectDB() *gorm.DB {
     }
 
     // Auto-migrate the Todo model
-    err = db.AutoMigrate(&models.Todo{})
+    migrations.RunMigrations(db)
     if err != nil {
         log.Fatal("Failed to run migrations:", err)
     }
